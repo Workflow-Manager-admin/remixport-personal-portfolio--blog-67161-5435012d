@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/remixport-personal-portfolio--blog-67161-5435012d/remix_frontend_workspace/remix_frontend"
+}

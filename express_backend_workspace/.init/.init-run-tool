@@ -1,0 +1,4 @@
+{
+    "command": "CI=true PORT=<port> HOST=0.0.0.0 npm run dev",
+    "working_directory": "/home/kavia/workspace/code-generation/remixport-personal-portfolio--blog-67161-5435012d/express_backend_workspace/express_backend"
+}
