@@ -13,48 +13,79 @@ export const meta: MetaFunction = () => [
 ];
 
 export default function Index() {
+  // Local navigation pages for a more portfolio-like landing
+  const navLinks = [
+    { href: "/about", text: "About", icon: "👤" },
+    { href: "/projects", text: "Projects", icon: "💼" },
+    { href: "/blog", text: "Blog", icon: "📝" },
+    { href: "/contact", text: "Contact", icon: "✉️" },
+  ];
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
-        <header className="flex flex-col items-center gap-9">
-          <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to <span className="sr-only">Remix</span>
-          </h1>
-          <div className="h-[144px] w-[434px]">
-            <img
-              src="/logo-light.png"
-              alt="Remix"
-              className="block w-full dark:hidden"
-            />
-            <img
-              src="/logo-dark.png"
-              alt="Remix"
-              className="hidden w-full dark:block"
-            />
-          </div>
-        </header>
-        <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
-          <p className="leading-6 text-gray-700 dark:text-gray-200">
-            What&apos;s next?
-          </p>
-          <ul>
-            {resources.map(({ href, text, icon }) => (
-              <li key={href}>
-                <a
-                  className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {icon}
-                  {text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+    <section className="max-w-2xl mx-auto min-h-[75vh] flex flex-col justify-center items-center px-4 pt-12 pb-8">
+      <header className="w-full flex flex-col items-center gap-6 mb-12">
+        <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-blue-700 dark:border-blue-500 shadow-lg mb-1 bg-gradient-to-tr from-blue-100/60 via-transparent to-gray-200/60">
+          <img
+            src="/logo-light.png"
+            alt="Portfolio logo light mode"
+            className="block w-full dark:hidden"
+          />
+          <img
+            src="/logo-dark.png"
+            alt="Portfolio logo dark mode"
+            className="hidden w-full dark:block"
+          />
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-bold text-center leading-tight tracking-tight">
+          Modern Developer Portfolio<br />
+          <span className="font-normal text-lg sm:text-xl text-gray-600 dark:text-gray-300 block mt-1">
+            Blog • Projects • About • Contact
+          </span>
+        </h1>
+      </header>
+      <nav className="w-full">
+        <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+          {navLinks.map(({ href, text, icon }) => (
+            <li key={href}>
+              <a
+                href={href}
+                className="flex items-center gap-3 p-5 rounded-xl shadow bg-white/90 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:shadow-lg hover:border-blue-500 dark:hover:border-blue-400 transition focus:outline-none focus:ring-2 focus:ring-blue-600"
+                tabIndex={0}
+                aria-label={text}
+              >
+                <span className="text-2xl" aria-hidden="true">{icon}</span>
+                <span className="font-semibold text-base">{text}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="mt-12 w-full flex flex-col gap-2 text-sm text-center text-gray-500 dark:text-gray-400">
+        <p>
+          This is an open-source, full-stack Remix portfolio.<br />
+          Explore projects, read blog posts, or get in touch.
+        </p>
       </div>
-    </div>
+      {/* External resources, like Remix quickstart, can be small links */}
+      <div className="mt-8 w-full flex flex-col items-center gap-0">
+        <span className="text-xs text-gray-400 dark:text-gray-600">Powered by Remix</span>
+        <div className="flex gap-4 mt-2">
+          {resources.map(({ href, text, icon }) => (
+            <a
+              key={href}
+              href={href}
+              className="inline-flex items-center gap-2 px-2 py-1 rounded focus:outline-none text-blue-600 dark:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+              aria-label={text}
+            >
+              <span>{icon}</span>
+              <span className="sr-only">{text}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -124,21 +124,21 @@ export default function Contact() {
     Object.values(validate()).every(v => !v);
 
   return (
-    <div className="mx-auto max-w-md py-12 px-4">
+    <section className="mx-auto max-w-md py-12 px-4 sm:px-6">
       <h1 className="text-3xl font-bold mb-8">Contact</h1>
       <div className="text-gray-500 text-sm mb-6">
         Fill out the form below to send a message.
         <br />
         <span className="italic block mt-1 text-gray-600 dark:text-gray-400">
-          (Note: This form is for demonstration – messages will not be emailed, but form delivery will be simulated.)
+          (Note: This form is for demonstration – messages will not be emailed.)
         </span>
       </div>
-      <Form method="post" ref={formRef} className="space-y-4 bg-white dark:bg-gray-900 p-6 rounded-lg border shadow" replace>
+      <Form method="post" ref={formRef} className="space-y-5 bg-white/95 dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md" replace>
         <label className="block">
-          <span className="mb-1 block font-semibold">Name</span>
+          <span className="mb-1 block font-medium text-sm">Name</span>
           <input
             name="name"
-            className={`w-full px-3 py-2 border rounded bg-gray-100 dark:bg-gray-800 ${mergedFieldErrors.name ? 'border-red-500' : ''}`}
+            className={`w-full px-3 py-2 border rounded-lg bg-gray-100 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700 transition ${mergedFieldErrors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'}`}
             value={fields.name}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -152,11 +152,11 @@ export default function Contact() {
           )}
         </label>
         <label className="block">
-          <span className="mb-1 block font-semibold">Email</span>
+          <span className="mb-1 block font-medium text-sm">Email</span>
           <input
             name="email"
             type="email"
-            className={`w-full px-3 py-2 border rounded bg-gray-100 dark:bg-gray-800 ${mergedFieldErrors.email ? 'border-red-500' : ''}`}
+            className={`w-full px-3 py-2 border rounded-lg bg-gray-100 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700 transition ${mergedFieldErrors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'}`}
             value={fields.email}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -170,10 +170,10 @@ export default function Contact() {
           )}
         </label>
         <label className="block">
-          <span className="mb-1 block font-semibold">Message</span>
+          <span className="mb-1 block font-medium text-sm">Message</span>
           <textarea
             name="message"
-            className={`w-full px-3 py-2 border rounded bg-gray-100 dark:bg-gray-800 ${mergedFieldErrors.message ? 'border-red-500' : ''}`}
+            className={`w-full px-3 py-2 border rounded-lg bg-gray-100 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700 transition ${mergedFieldErrors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'}`}
             value={fields.message}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -189,9 +189,9 @@ export default function Contact() {
         <button
           type="submit"
           disabled={!canSubmit}
-          className={`w-full font-semibold py-2 rounded ${
+          className={`w-full font-semibold py-2 rounded-lg text-base transition ${
             canSubmit
-              ? "bg-blue-700 hover:bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-600 text-white"
+              ? "bg-blue-700 hover:bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-600 text-white shadow"
               : "bg-gray-400 text-gray-100 dark:bg-gray-800 dark:text-gray-400 cursor-not-allowed"
           }`}
         >
@@ -209,6 +209,6 @@ export default function Contact() {
           </div>
         )}
       </Form>
-    </div>
+    </section>
   );
 }

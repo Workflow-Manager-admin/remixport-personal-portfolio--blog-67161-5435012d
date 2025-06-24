@@ -33,21 +33,25 @@ export async function loader() {
 export default function BlogIndex() {
   const { blogs } = useLoaderData<typeof loader>();
   return (
-    <div className="mx-auto max-w-3xl py-12 px-6">
-      <h1 className="text-3xl font-bold mb-8">Blog</h1>
-      <div className="grid gap-8">
+    <section className="mx-auto max-w-3xl py-12 px-4 sm:px-6">
+      <h1 className="text-3xl font-bold mb-9">Blog</h1>
+      <div className="grid gap-6 sm:grid-cols-2">
         {blogs.map(blog =>
           <Link
             to={`/blog/${blog.slug}`}
             key={blog.slug}
-            className="block rounded-lg border p-6 transition hover:shadow-lg bg-white dark:bg-gray-900"
+            className="block rounded-xl border border-gray-200 dark:border-gray-700 p-5 transition-all duration-150 hover:shadow-xl shadow-sm bg-white/90 dark:bg-gray-900 hover:border-blue-500 hover:scale-[1.04] focus:outline-none focus:ring-2 focus:ring-blue-600"
+            tabIndex={0}
+            aria-label={`${blog.title} blog post`}
           >
-            <h2 className="text-xl font-semibold mb-1">{blog.title}</h2>
-            <div className="text-gray-500 text-sm mb-2">{new Date(blog.date).toLocaleDateString()}</div>
-            <p className="mb-2">{blog.summary}</p>
+            <div className="flex flex-col gap-2 h-full">
+              <h2 className="text-lg sm:text-xl font-semibold mb-1 line-clamp-2">{blog.title}</h2>
+              <div className="text-gray-500 text-xs mb-1">{new Date(blog.date).toLocaleDateString()}</div>
+              <p className="mb-2 text-sm text-gray-700 dark:text-gray-300 line-clamp-3">{blog.summary}</p>
+            </div>
           </Link>
         )}
       </div>
-    </div>
+    </section>
   );
 }

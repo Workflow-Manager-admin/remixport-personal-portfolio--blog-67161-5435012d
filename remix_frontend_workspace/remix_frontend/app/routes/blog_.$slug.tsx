@@ -46,9 +46,13 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default function BlogDetailPage() {
   const { title, content, date } = useLoaderData<typeof loader>();
   return (
-    <article className="mx-auto max-w-2xl py-10 px-6 prose dark:prose-invert">
-      <h1>{title}</h1>
-      <div className="text-gray-500 text-sm mb-6">{new Date(date).toLocaleDateString()}</div>
+    <article className="mx-auto max-w-2xl py-10 px-4 sm:px-6 prose dark:prose-invert">
+      <header>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">{title}</h1>
+        <div className="text-gray-500 text-sm mb-5">
+          {new Date(date).toLocaleDateString()}
+        </div>
+      </header>
       <ReactMarkdown>{content}</ReactMarkdown>
     </article>
   );

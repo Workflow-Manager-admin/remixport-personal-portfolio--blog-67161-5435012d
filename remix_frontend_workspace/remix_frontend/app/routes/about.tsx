@@ -29,9 +29,9 @@ export async function loader() {
 export default function About() {
   const { content } = useLoaderData<typeof loader>();
   return (
-    <div className="mx-auto max-w-2xl py-12 px-6 prose dark:prose-invert">
-      <h1>About Me</h1>
+    <section className="mx-auto max-w-2xl py-12 px-4 sm:px-6 prose dark:prose-invert">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">About Me</h1>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
+    </section>
   );
 }

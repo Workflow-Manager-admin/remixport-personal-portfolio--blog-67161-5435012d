@@ -32,25 +32,40 @@ export async function loader() {
 export default function Projects() {
   const { projects } = useLoaderData<typeof loader>();
   return (
-    <div className="mx-auto max-w-3xl py-12 px-6">
-      <h1 className="text-3xl font-bold mb-8">Projects</h1>
-      <div className="grid gap-8 md:grid-cols-2">
+    <section className="mx-auto max-w-3xl py-12 px-4 sm:px-6">
+      <h1 className="text-3xl font-bold mb-9">Projects</h1>
+      <div className="grid gap-6 sm:grid-cols-2">
         {projects.map((proj) => (
-          <div key={proj.github} className="rounded-xl border p-6 shadow hover:shadow-lg bg-white dark:bg-gray-900">
-            <h2 className="text-xl font-semibold">
-              <a href={proj.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 underline">{proj.name}</a>
+          <div
+            key={proj.github}
+            className="rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-400 bg-white/90 dark:bg-gray-900 transition-all duration-150 h-full flex flex-col"
+          >
+            <h2 className="text-lg font-semibold mb-1">
+              <a
+                href={proj.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-700 hover:underline dark:text-blue-400"
+              >
+                {proj.name}
+              </a>
             </h2>
-            <p className="my-3">{proj.description}</p>
+            <p className="mb-3 text-sm">{proj.description}</p>
             {proj.tags && (
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {proj.tags.map(tag => (
-                  <span key={tag} className="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">{tag}</span>
+                  <span
+                    key={tag}
+                    className="inline-block text-xs px-2 py-1 rounded-full bg-blue-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-blue-100 dark:border-gray-700 font-medium"
+                  >
+                    {tag}
+                  </span>
                 ))}
               </div>
             )}
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
