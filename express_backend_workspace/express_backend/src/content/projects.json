@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Portfolio Platform",
+    "slug": "portfolio-platform",
+    "description": "Modern, open-source portfolio generator for devs and designers, with blog markdown support.",
+    "tags": ["React", "Remix", "Express", "Node.js"],
+    "github": "https://github.com/your-username/portfolio-platform",
+    "website": "https://portfolio-platform.dev"
+  },
+  {
+    "name": "Bloggy Markdown",
+    "slug": "bloggy-markdown",
+    "description": "A simple, fast blogging platform powered by markdown files with live preview.",
+    "tags": ["Markdown", "Express", "Blog"],
+    "github": "https://github.com/your-username/bloggy-markdown"
+  }
+]

@@ -2,6 +2,8 @@ const express = require('express');
 const healthController = require('../controllers/health');
 const blogsRouter = require('./blogs');
 const contactRouter = require('./contact');
+const aboutRouter = require('./about');
+const projectsRouter = require('./projects');
 
 const router = express.Router();
 
@@ -33,6 +35,12 @@ const router = express.Router();
  *                   example: development
  */
 router.get('/', healthController.check.bind(healthController));
+
+/**
+ * About and Projects APIs
+ */
+router.use('/api/about', aboutRouter);
+router.use('/api/projects', projectsRouter);
 
 // Blog APIs
 router.use('/api/blogs', blogsRouter);

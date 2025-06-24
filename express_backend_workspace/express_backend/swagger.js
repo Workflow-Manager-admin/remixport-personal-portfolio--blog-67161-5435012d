@@ -11,7 +11,12 @@ const options = {
   },
   apis: [
     './src/routes/*.js',
-    './src/controllers/*.js'
+    './src/controllers/*.js',
+    // Ensure new routes/controllers are autodiscovered:
+    './src/controllers/aboutController.js',
+    './src/controllers/projectsController.js',
+    './src/services/aboutService.js',
+    './src/services/projectsService.js',
   ], // Path to the API docs
 };
 
