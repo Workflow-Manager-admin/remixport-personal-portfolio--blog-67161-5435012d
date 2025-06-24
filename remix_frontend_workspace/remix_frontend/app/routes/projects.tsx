@@ -10,7 +10,14 @@ type Project = {
 
 export const meta: MetaFunction = () => [
   { title: "Projects | Portfolio" },
-  { name: "description", content: "Developer projects and portfolio gallery" },
+  { name: "description", content: "Developer projects and portfolio gallery. Explore real-world programming projects and apps." },
+  { property: "og:title", content: "Projects | Portfolio" },
+  { property: "og:description", content: "View developer projects, sample code, and portfolio app gallery." },
+  { property: "og:type", content: "website" },
+  { property: "og:image", content: "/logo-light.png" },
+  { name: "twitter:card", content: "summary" },
+  { name: "twitter:title", content: "Projects | Portfolio" },
+  { name: "twitter:description", content: "Gallery of programming projects built by the developer." }
 ];
 
 // PUBLIC_INTERFACE

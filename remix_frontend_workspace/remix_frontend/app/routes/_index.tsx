@@ -1,11 +1,16 @@
 import type { MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+export const meta: MetaFunction = () => [
+  { title: "Home | Portfolio" },
+  { name: "description", content: "Modern developer portfolio and blog home page." },
+  { property: "og:title", content: "Home | Portfolio" },
+  { property: "og:description", content: "Modern web developer portfolio: explore projects, blogs, and ways to connect!" },
+  { property: "og:type", content: "website" },
+  { property: "og:image", content: "/logo-light.png" },
+  { name: "twitter:card", content: "summary" },
+  { name: "twitter:title", content: "Home | Portfolio" },
+  { name: "twitter:description", content: "Modern web developer portfolio and blog." }
+];
 
 export default function Index() {
   return (

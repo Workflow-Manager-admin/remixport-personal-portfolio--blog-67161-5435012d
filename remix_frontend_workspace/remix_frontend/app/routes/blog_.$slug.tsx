@@ -9,10 +9,26 @@ type BlogDetail = {
   summary?: string;
 };
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => [
-  { title: data?.title ? `${data.title} | Blog` : "Blog | Portfolio" },
-  { name: "description", content: data?.summary ? data.summary : "Blog detail page" },
-];
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const title = data?.title ? `${data.title} | Blog` : "Blog | Portfolio";
+  const description =
+    data?.summary ??
+    (data?.content
+      ? data.content.slice(0, 140) + (data.content.length > 140 ? "..." : "")
+      : "Blog detail page");
+
+  return [
+    { title },
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:type", content: "article" },
+    { property: "og:image", content: "/logo-light.png" },
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+  ];
+};
 
 // PUBLIC_INTERFACE
 export async function loader({ params }: LoaderFunctionArgs) {

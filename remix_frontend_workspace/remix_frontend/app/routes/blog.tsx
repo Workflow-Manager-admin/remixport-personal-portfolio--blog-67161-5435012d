@@ -10,7 +10,14 @@ type BlogMeta = {
 
 export const meta: MetaFunction = () => [
   { title: "Blog | Portfolio" },
-  { name: "description", content: "Personal blog posts and writing" }
+  { name: "description", content: "Personal blog posts, insights, and technical writing from a developer portfolio." },
+  { property: "og:title", content: "Blog | Portfolio" },
+  { property: "og:description", content: "Personal blog and writing: technical posts and developer musings." },
+  { property: "og:type", content: "article" },
+  { property: "og:image", content: "/logo-light.png" },
+  { name: "twitter:card", content: "summary" },
+  { name: "twitter:title", content: "Blog | Portfolio" },
+  { name: "twitter:description", content: "Read personal blog posts and writing." }
 ];
 
 // PUBLIC_INTERFACE

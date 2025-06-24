@@ -7,7 +7,14 @@ type AboutData = {
 
 export const meta: MetaFunction = () => [
   { title: "About | Portfolio" },
-  { name: "description", content: "About the site owner and portfolio" },
+  { name: "description", content: "Professional background, skills, and about the developer. Portfolio and profile details." },
+  { property: "og:title", content: "About | Portfolio" },
+  { property: "og:description", content: "Learn about the developer's skills and background on this personal portfolio site." },
+  { property: "og:type", content: "profile" },
+  { property: "og:image", content: "/logo-light.png" },
+  { name: "twitter:card", content: "summary" },
+  { name: "twitter:title", content: "About | Portfolio" },
+  { name: "twitter:description", content: "Professional background, skills, and developer profile." }
 ];
 
 /* PUBLIC_INTERFACE */

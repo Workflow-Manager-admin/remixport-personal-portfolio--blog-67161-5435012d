@@ -6,7 +6,14 @@ type ActionData = { success?: boolean; error?: string };
 
 export const meta: MetaFunction = () => [
   { title: "Contact | Portfolio" },
-  { name: "description", content: "Contact form for portfolio site" }
+  { name: "description", content: "Contact form to get in touch with the developer via email." },
+  { property: "og:title", content: "Contact | Portfolio" },
+  { property: "og:description", content: "Reach out using the contact form for freelance, collaboration, or questions." },
+  { property: "og:type", content: "website" },
+  { property: "og:image", content: "/logo-light.png" },
+  { name: "twitter:card", content: "summary" },
+  { name: "twitter:title", content: "Contact | Portfolio" },
+  { name: "twitter:description", content: "Contact the developer via this form." }
 ];
 
 // PUBLIC_INTERFACE
